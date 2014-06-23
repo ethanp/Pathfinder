@@ -41,12 +41,12 @@ def pathfinder(cd_here, find):
             end_string = True
             elem = elem[:-1]
 
-        for f in os.listdir(loc):
-            if start_string and not f.startswith(elem): continue
-            if end_string and not f.endswith(elem):     continue
-            if not_dir and os.path.isdir(f):            continue
-            if not asterisk and elem not in f:          continue
-            new_path = os.path.join(os.path.abspath(loc), f)
+        for file_name in os.listdir(loc):
+            if start_string and not file_name.startswith(elem): continue
+            if end_string and not file_name.endswith(elem):     continue
+            if not_dir and os.path.isdir(file_name):            continue
+            if not asterisk and elem not in file_name:          continue
+            new_path = os.path.join(os.path.abspath(loc), file_name)
             queue.append((depth, new_path))
 
     search('.', find.pop(0))
